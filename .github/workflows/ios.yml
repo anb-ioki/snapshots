@@ -1,0 +1,29 @@
+name: Backlog Ticket Completion Notifier
+on:
+  push:
+    tags:
+      - "*"
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: blackjacx/backlog-notifier@1.4.0
+        with:
+          repo-references: |
+            {
+              "data": [
+                {"repo_id": "BACKLOG", "repo_name": "backlog"},
+                {"repo_id": "PIT", "repo_name": "pit-backlog"},
+                {"repo_id": "BUG", "repo_name": "bugs"},
+                {"repo_id": "FEATURE", "repo_name": "feature-requests"},
+                {"repo_id": "UX", "repo_name": "ux"},
+                {"repo_id": "QA", "repo_name": "qa"},
+                {"repo_id": "BEIWAGEN", "repo_name": "beiwagen"},
+                {"repo_id": "TRIEBWERK", "repo_name": "triebwerk"}
+              ]
+            }
+          message: "This issue has been resolved in version # of the iOS passenger app 🚀"
+        env:
+          GITHUB_TOKEN: ${{ secrets.BACKLOG_NOTIFIER_GITHUB_TOKEN }}
