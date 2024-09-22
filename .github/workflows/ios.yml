@@ -1,29 +1,37 @@
-name: Backlog Ticket Completion Notifier
+name: ios
+
 on:
   push:
-    tags:
-      - "*"
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '**'
+
 jobs:
-  notify:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: macos-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - uses: blackjacx/backlog-notifier@1.4.0
-        with:
-          repo-references: |
-            {
-              "data": [
-                {"repo_id": "BACKLOG", "repo_name": "backlog"},
-                {"repo_id": "PIT", "repo_name": "pit-backlog"},
-                {"repo_id": "BUG", "repo_name": "bugs"},
-                {"repo_id": "FEATURE", "repo_name": "feature-requests"},
-                {"repo_id": "UX", "repo_name": "ux"},
-                {"repo_id": "QA", "repo_name": "qa"},
-                {"repo_id": "BEIWAGEN", "repo_name": "beiwagen"},
-                {"repo_id": "TRIEBWERK", "repo_name": "triebwerk"}
-              ]
-            }
-          message: "This issue has been resolved in version # of the iOS passenger app 🚀"
-        env:
-          GITHUB_TOKEN: ${{ secrets.BACKLOG_NOTIFIER_GITHUB_TOKEN }}
+    # Шаг 1: Checkout репозиторий без загрузки файлов из LFS
+    - name: Checkout code without Git LFS
+      uses: actions/checkout@v2
+      with:
+        lfs: false  # Отключаем Git LFS
+
+    # Шаг 2: Установка Ruby для CocoaPods
+    - name: Set up Ruby (for CocoaPods)
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.2'  # Укажи свою версию Ruby
+
+    # Шаг 3: Установка CocoaPods зависимостей
+    #- name: Install CocoaPods dependencies
+    #  run: |
+    #    gem install cocoapods
+    #   pod install
+
+    # Шаг 4: Сборка и юнит-тестирование проекта (без снапшот-тестов)
+    #- name: Build and Run Unit Tests
+    #  run: |
+    #    xcodebuild test -workspace Snp-tst.xcworkspace -scheme Snp-tst -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15 Pro,OS=latest' -only-testing:UnitTests -destination-timeout 60 CODE_SIGNING_ALLOWED=NO | xcpretty
