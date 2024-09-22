@@ -14,6 +14,8 @@
 		2BF0E0B32CA052E300A0D5EE /* SnapshotsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF0E0B22CA052E300A0D5EE /* SnapshotsTests.swift */; };
 		2BF0E0BD2CA052E300A0D5EE /* SnapshotsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF0E0BC2CA052E300A0D5EE /* SnapshotsUITests.swift */; };
 		2BF0E0BF2CA052E300A0D5EE /* SnapshotsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF0E0BE2CA052E300A0D5EE /* SnapshotsUITestsLaunchTests.swift */; };
+		2BF0E0CD2CA0564400A0D5EE /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 2BF0E0CC2CA0564400A0D5EE /* InlineSnapshotTesting */; };
+		2BF0E0CF2CA0564400A0D5EE /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 2BF0E0CE2CA0564400A0D5EE /* SnapshotTesting */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BF0E0CD2CA0564400A0D5EE /* InlineSnapshotTesting in Frameworks */,
+				2BF0E0CF2CA0564400A0D5EE /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +165,10 @@
 				2BF0E0B02CA052E300A0D5EE /* PBXTargetDependency */,
 			);
 			name = SnapshotsTests;
+			packageProductDependencies = (
+				2BF0E0CC2CA0564400A0D5EE /* InlineSnapshotTesting */,
+				2BF0E0CE2CA0564400A0D5EE /* SnapshotTesting */,
+			);
 			productName = SnapshotsTests;
 			productReference = 2BF0E0AE2CA052E300A0D5EE /* SnapshotsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -602,6 +610,19 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2BF0E0CC2CA0564400A0D5EE /* InlineSnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2BF0E0CB2CA053B600A0D5EE /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = InlineSnapshotTesting;
+		};
+		2BF0E0CE2CA0564400A0D5EE /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2BF0E0CB2CA053B600A0D5EE /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2BF0E0962CA052E200A0D5EE /* Project object */;
 }
