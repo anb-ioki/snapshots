@@ -48,6 +48,8 @@
 		2BF0E0BC2CA052E300A0D5EE /* SnapshotsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotsUITests.swift; sourceTree = "<group>"; };
 		2BF0E0BE2CA052E300A0D5EE /* SnapshotsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2BF0E0D02CA199DB00A0D5EE /* JustUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustUnitTests.swift; sourceTree = "<group>"; };
+		2BF0E0D22CA19C2A00A0D5EE /* Separated_snapshots.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Separated_snapshots.xctestplan; sourceTree = "<group>"; };
+		2BF0E0D32CA19C4A00A0D5EE /* Snapshots.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Snapshots.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,8 @@
 		2BF0E0952CA052E200A0D5EE = {
 			isa = PBXGroup;
 			children = (
+				2BF0E0D32CA19C4A00A0D5EE /* Snapshots.xctestplan */,
+				2BF0E0D22CA19C2A00A0D5EE /* Separated_snapshots.xctestplan */,
 				2BF0E0A02CA052E200A0D5EE /* Snapshots */,
 				2BF0E0B12CA052E300A0D5EE /* SnapshotsTests */,
 				2BF0E0BB2CA052E300A0D5EE /* SnapshotsUITests */,
