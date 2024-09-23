@@ -1,0 +1,21 @@
+name: snapshot_tests
+
+on:
+  workflow_dispatch: # manually start via GitHub
+
+jobs:
+  snapshot-tests:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Ruby (for CocoaPods)
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.2'
+
+    - name: Run Snapshot Tests
+      run: |
+        xcodebuild test -scheme Snapshots -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15 Pro,OS=latest' -destination-timeout 60 CODE_SIGNING_ALLOWED=NO | xcpretty
