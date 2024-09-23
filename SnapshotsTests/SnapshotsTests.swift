@@ -20,14 +20,14 @@ final class SnapshotsTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample9() throws {
+    func testExample1() throws {
         let view = ContentView()
         let host = UIHostingController(rootView: view)
         host.view.frame = CGRect(x: 0, y: 0, width: 300, height: 500)
         assertSnapshot(of: host, as: .image)
     }
 
-    func testExampl10() throws {
+    func testExampl2() throws {
         let view = ContentView()
         let host = UIHostingController(rootView: view)
         host.view.frame = CGRect(x: 0, y: 0, width: 300, height: 500)
